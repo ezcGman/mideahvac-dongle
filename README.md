@@ -1,4 +1,24 @@
-# Midea HVAC WiFi Dongle
+# Midea HVAC WiFi Dongle - v2 for EU-SK105
+
+This repo is based on [Rene Klootwijk's repository](https://github.com/reneklootwijk/mideahvac-dongle). So majority of credits for all this go to him! Original ReadMe from him is also below.
+
+I've made a couple of changes so the board, mainly to fit its size to the Midea EU-SK105 dongle that is common nowadays and to use a bit more common parts. List of changes below:
+* Converted the KiCad project to KiCad 9
+* Size of the PCB **without a case** is now exactly the size of the EU-SK105 **with a case**, which is 41x24mm. That means you can use it as 1:1 drop-in replacement.
+* All pads are now "hand-solder" pads to allow for easier hand soldering, if you wish to
+* The footpronts for the LDO caps are now 0805 hand solder pads, compared to the larger pads they were before. This allows you to use usual ceramic caps, if you wish to (which are totally fine to use here), instead of the recommended tantalum caps. You can still use tantalum caps, if you wish so, as they also come in 0805 package size.
+* Replaced a few resistors with a single resistor array. While this is not a common part people have at home, it saves space and is just less parts on the board
+* Added iBOM file which is a great soldering help. Give it a look!
+* Gerbers, BOM and CPL files have also of course been updated
+
+Additional hint which also applies to Rene's original version: You can also use and ESP-07 instead which offers and external antenna, just in case you need better Wi-Fi reception ;)
+
+That's what the board now looks like:
+![How it looks](https://github.com/ezcGman/mideahvac-dongle/blob/master/images/mideahvac-dongle-v2.png?raw=true)
+
+*(Original ReadMe below)*
+
+---
 
 This repository contains the hardware design of a WiFi dongle for Midea-like airconditioners and humidifiers.
 Midea provides a WiFi dongle (SK102/SK103), either as optional feature or built-in, to control the appliances via a mobile application. This dongle uses and is dependent on the Midea cloud which does not expose a publically available API. The protocol used by the dongle has been reverse engineered, but newer version still require the cloud to obtain an encryption key or require an addition server simulating the Midea cloud. This means integration in an existing home automation system is not straight forward.
