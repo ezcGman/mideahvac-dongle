@@ -1,0 +1,62 @@
+substitutions:
+  device_name: "esph-comfee-7000-ac-esp12f"
+  climate_name: "Comfee Smart Cool 7000-1 #1"
+  friendly_name: "ESPHome ${climate_name}"
+  ap_name: "Comfee AC #1 Fallback Hotspot"
+  ap_ip: 192.168.100.1
+  node_id: "comfee_ac_1"
+
+esphome:
+  name: "${device_name}"
+  friendly_name: "${friendly_name}"
+
+esp8266:
+  board: esp12e  # If you're using an ESP-07, change to "esp07"
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "YOUR_KEY_HERE"
+
+ota:
+  - platform: esphome
+    password: "YOUR_PASSWORD_HERE"
+
+wifi:
+  ssid: "YOUR_SSID_HERE"
+  password: "YOUR_PASSWORD_HERE"
+  reboot_timeout: 3min
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: ${ap_name}
+    password: "YOUR_PASSWORD_HERE"
+    manual_ip:
+      static_ip: ${ap_ip}
+      gateway: ${ap_ip}
+      subnet: 255.255.255.0
+
+captive_portal:
+
+web_server:
+  port: 80
+  ota: false
+
+# Define UART pinout 
+uart:
+  tx_pin: 1
+  rx_pin: 3
+  baud_rate: 9600
+
+climate:
+  - platform: midea
+    id: ${node_id}_climate
+    name: "${climate_name}"
+
+    supported_modes:
+      - FAN_ONLY
+      - COOL
+      - DRY

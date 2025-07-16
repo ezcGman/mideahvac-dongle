@@ -1,3 +1,4 @@
+
 # Midea HVAC WiFi Dongle - v2 for EU-SK105
 
 This repo is based on [Rene Klootwijk's repository](https://github.com/reneklootwijk/mideahvac-dongle). So majority of credits for all this go to him! Original ReadMe from him is also below.
@@ -14,7 +15,35 @@ I've made a couple of changes so the board, mainly to fit its size to the Midea 
 Additional hint which also applies to Rene's original version: You can also use and ESP-07 instead which offers and external antenna, just in case you need better Wi-Fi reception ;)
 
 That's what the board now looks like:
-![How it looks](https://github.com/ezcGman/mideahvac-dongle/blob/master/images/mideahvac-dongle-v2.png?raw=true)
+![How it looks](https://github.com/ezcGman/mideahvac-dongle/blob/master/images/mideahvac-dongle-v2.jpg?raw=true)
+
+## PCB and Parts
+* Gerbers, BOM and placement files can be found in the "production-files" folder
+* The buttons are 3x4mm in size. Height is up to your liking. Can easily be found on AliExpress:
+![Buttons](https://github.com/ezcGman/mideahvac-dongle/blob/master/images/buttons.png?raw=true)
+* Specs of the USB jack, can also be found on AliExpress:
+![USB Jack](https://github.com/ezcGman/mideahvac-dongle/blob/master/images/usb-jack.png?raw=true)
+* Caps can be either tantalum or ceramic: Officially should be tantalum, but ceramic work just fine. 
+* And again: Remember that the ESP-12F is (in nearly all cases) interchangeable with an ESP-07 which offers an external antenna:
+![Boards with ESP-07 and ESP-12F](https://github.com/ezcGman/mideahvac-dongle/blob/master/images/esp-07-12.jpg?raw=true)
+
+I **highly** recommend taking a look at the iBOM file that can also be found in the "production-files" folder. It makes sourcing the parts and soldering so much easier!
+
+## Flashing
+Flashing the ESP can be done using any USB-to-UART adapter. I'm using an FT232RL FTDI that you can easily find on AliExpress. To wire it up, I recommend getting an USB-A-socket cable with open ends, so you can crimp a dupont at the open end. Wiring then looks like this:
+![Wiring for flashing](https://github.com/ezcGman/mideahvac-dongle/blob/master/images/wiring-flashing.jpg?raw=true)
+So TX from the dongle goes to RX on the UART adapter and RX from the dongle goes to TX on the UART adapter. Set the UART adapter to 5V. Yes, it is safe. You will **not** burn the ESP in this case! The board has two mosfets that will switch the pins to 3v3.
+Now how to actually flash the board:
+ 1. Create a new device under "ESPHome Builder" in Home Assistant. Choose `ESP8266` as board
+ 2. You can find an example config under "esphome". Edit the config in ESPHome builder and substitute the placeholders and potentially the board, if you're using an ESP-07 instead of an ESP-12F.
+ 3. Install and download.
+ 4. Now open [ESPHome Web](https://web.esphome.io)
+ 5. Connect the UART adapter to your PC, but not the dongle just yet!
+ 6. Hold the "PRG" button on the dongle and keep holding it!
+ 7. Now connect the dongle to the UART adapter. Keep holding "PRG"!
+ 8. Click "Connect" on ESPHome Web, select the UART adapter, click "Install", select the bin you've just built and downloaded and flash it.
+ 9. As soon as it says "Erasing" or "Flashing", you can release the "PRG" button.
+ 10. Wait  for it to be installed and it will show up in your Wi-Fi and under "Devices" in Home Assistant
 
 *(Original ReadMe below)*
 
