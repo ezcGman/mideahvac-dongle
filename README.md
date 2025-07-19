@@ -7,7 +7,7 @@ I've made a couple of changes so the board, mainly to fit its size to the Midea 
 * Converted the KiCad project to KiCad 9
 * Size of the PCB **without a case** is now exactly the size of the EU-SK105 **with a case**, which is 41x24mm. That means you can use it as 1:1 drop-in replacement.
 * All pads are now "hand-solder" pads to allow for easier hand soldering, if you wish to
-* The footpronts for the LDO caps are now 0805 hand solder pads, compared to the larger pads they were before. This allows you to use usual ceramic caps, if you wish to (which are totally fine to use here), instead of the recommended tantalum caps. You can still use tantalum caps, if you wish so, as they also come in 0805 package size.
+* The footprints for the LDO caps are now 0805 hand solder pads, compared to the larger pads they were before. This allows you to use usual ceramic caps, if you wish to (which are totally fine to use here), instead of the recommended tantalum caps. You can still use tantalum caps, if you wish so, as they also come in 0805 package size.
 * Replaced a few resistors with a single resistor array. While this is not a common part people have at home, it saves space and is just less parts on the board
 * Added iBOM file which is a great soldering help. Give it a look!
 * Gerbers, BOM and CPL files have also of course been updated
@@ -23,7 +23,7 @@ That's what the board now looks like:
 ![Buttons](https://github.com/ezcGman/mideahvac-dongle/blob/master/images/buttons.png?raw=true)
 * Specs of the USB jack, can also be found on AliExpress:
 ![USB Jack](https://github.com/ezcGman/mideahvac-dongle/blob/master/images/usb-jack.png?raw=true)
-* Caps can be either tantalum or ceramic: Officially should be tantalum, but ceramic work just fine. 
+* LDO Caps (C1 & C2) can be either tantalum or ceramic: Officially should be tantalum, but ceramic work just fine. 
 * And again: Remember that the ESP-12F is (in nearly all cases) interchangeable with an ESP-07 which offers an external antenna:
 ![Boards with ESP-07 and ESP-12F](https://github.com/ezcGman/mideahvac-dongle/blob/master/images/esp-07-12.jpg?raw=true)
 
