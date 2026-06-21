@@ -4992,7 +4992,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Can be ceramic or tantalum, 2012 metric equals 0805 imperial"
 			(at 83.82 87.63 0)
 			(effects
 				(font
@@ -5070,7 +5070,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Can be ceramic or tantalum, 2012 metric equals 0805 imperial"
 			(at 63.5 87.63 0)
 			(effects
 				(font
@@ -5665,7 +5665,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R_Pack04"
+		(property "Value" "10k"
 			(at 98.425 163.83 0)
 			(effects
 				(font
